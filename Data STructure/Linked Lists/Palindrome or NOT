@@ -37,8 +37,8 @@ public:
         if(head == NULL || head->next == NULL) return false;
 
         ListNode* temp = head;
-        ListNode* middle = middleNode(head);
-        ListNode* newhead = reverseList(middle->next);
+        ListNode* middle = middleNode(head); //finding middle element
+        ListNode* newhead = reverseList(middle->next); //reversing the half list from middle
         
 
         while(newhead != NULL)
