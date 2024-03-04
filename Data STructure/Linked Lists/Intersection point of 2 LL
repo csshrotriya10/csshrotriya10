@@ -1,0 +1,50 @@
+//Differencing and comparing solution. Time complexity : O(m+n), space complexity : O(1)
+class Solution {
+public:
+    int len(ListNode* head)
+    {
+        int count = 0;
+
+        while(head != NULL)
+        {
+            count++;
+            head = head->next;
+        }
+        return count;
+    }
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) 
+    {
+           ListNode* tempA = headA;
+           ListNode* tempB = headB;
+
+           int lenA = len(headA);
+           int lenB = len(headB);
+
+           if(lenA > lenB)
+           {
+              int diff = lenA - lenB;
+              while(diff--){
+                 tempA = tempA->next;
+              }
+           }
+           else
+           {
+               int diff = lenB - lenA;
+               while(diff--)
+               {
+                   tempB = tempB->next;
+               }
+           }
+
+           while(tempA != tempB)
+           {
+               tempA = tempA->next;
+               tempB = tempB->next;
+           }
+           return tempA;
+    }
+};
+----------------------------------------------------------------------------------------------------------
+// We can use sets as well for the solution but space complexity would be O(m+n)
+
+
