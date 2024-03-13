@@ -1,0 +1,18 @@
+// Find the Maximum Depth of the Tree
+
+class Solution {
+public:
+    int maxDepth(TreeNode* root) {
+        
+        if(root == NULL) return 0;   //base case
+
+        int left_h = 0, right_h = 0;
+        
+        if(root->left)
+         left_h = maxDepth(root->left);
+        if(root->right)
+         right_h = maxDepth(root->right);
+        
+        return (1 + max(left_h, right_h));
+    }
+};
